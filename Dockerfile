@@ -5,7 +5,7 @@
 FROM easypi/alpine-arm
 MAINTAINER EasyPi Software Foundation
 
-ENV GHOST_VER 0.11.1
+ENV GHOST_VER 0.9.0
 ENV GHOST_URL https://ghost.org/archives/ghost-$GHOST_VER.zip
 ENV GHOST_SOURCE /usr/src/ghost
 ENV GHOST_CONTENT /var/lib/ghost
@@ -21,7 +21,7 @@ RUN set -ex \
                       python \
     && curl -sSL $GHOST_URL -o ghost.zip \
     && unzip ghost.zip \
-    && npm install --production --unsafe-perm \
+    && npm install --production \
     && npm cache clean \
     && apk del TMP \
     && rm -rf ghost.zip \
